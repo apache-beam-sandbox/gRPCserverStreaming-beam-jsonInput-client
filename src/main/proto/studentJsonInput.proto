@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package jsonReader;
+
+option java_package = "com.fileReader.generated.stubs";
+option java_multiple_files = true;
+
+message FileReaderRequest {
+  string filePath = 1;
+}
+
+message FileReaderResponse {
+  string line = 1;
+}
+
+service FileReaderService{
+  rpc readFile(FileReaderRequest) returns (stream FileReaderResponse) {};
+}
